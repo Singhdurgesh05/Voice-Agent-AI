@@ -1,11 +1,4 @@
-"""
-SQLAlchemy ORM models for PostgreSQL.
 
-Tables:
-  - sessions:        Chat sessions / conversations
-  - messages:        Individual messages within a session
-  - tool_executions: Records of tool invocations and their outcomes
-"""
 
 import enum
 import uuid
@@ -25,14 +18,14 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import DeclarativeBase, relationship
 
 
-# ── Base ─────────────────────────────────────────────────────────
+
 
 class Base(DeclarativeBase):
     """Declarative base for all ORM models."""
     pass
 
 
-# ── Enums ────────────────────────────────────────────────────────
+
 
 class MessageRole(str, enum.Enum):
     USER = "user"
@@ -49,7 +42,7 @@ class ActionStatus(str, enum.Enum):
     FAILED = "failed"
 
 
-# ── Models ───────────────────────────────────────────────────────
+
 
 class Session(Base):
     """A chat session / conversation."""
