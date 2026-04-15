@@ -1,0 +1,41 @@
+# ── Python ──────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# ── Environment ─────────────────────────────────────────────────
+.env
+
+# ── IDE ─────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Node / Frontend ─────────────────────────────────────────────
+node_modules/
+.next/
+.turbo/
+npm-debug.log*
+
+# ── Project Artifacts ───────────────────────────────────────────
+uploads/
+output/
+*.wav
+*.mp3
+*.webm
+
+# ── OS ──────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Docker ──────────────────────────────────────────────────────
+postgres_data/
+qdrant_data/

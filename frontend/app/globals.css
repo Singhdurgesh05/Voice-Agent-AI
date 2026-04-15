@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ─────────────────────────────────── */
+
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0A0A0B;
+  --bg-card: #0A0A0B;
+  --bg-card-hover: #121214;
+  --bg-input: #000000;
+
+  --border-primary: #27272A;
+  --border-accent: #CCFF00;
+
+  --text-primary: #F8F9FA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+
+  --accent: #CCFF00;
+  --accent-hover: #99CC00;
+  --accent-glow: rgba(204, 255, 0, 0.15);
+
+  --success: #00FA9A;
+  --warning: #FFD700;
+  --danger: #FF4500;
+  --info: #CCFF00;
+
+  --gradient-accent: #CCFF00;
+  --gradient-card: #0A0A0B;
+}
+
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-bricolage), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+/* ── Global Styles ─────────────────────────────────── */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #27272A #000000;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 0;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  /* Hyper-subtle grid pattern */
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ── Animations ────────────────────────────────────── */
+
+@keyframes fadeInFast {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-sharp {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeInFast 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: fadeInFast 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-ring {
+  animation: pulse-sharp 1s ease-in-out infinite;
+}
+
+/* ── Legacy Classes mapped to Stealth Tech ─────── */
+
+.glass {
+  background: #0A0A0B;
+  border: 1px solid var(--border-primary);
+}
+
+.glass-accent {
+  background: #0A0A0B;
+  border: 1px solid var(--accent);
+  box-shadow: inset 0px 0px 10px 0px rgba(204, 255, 0, 0.05);
+}
+
+.glow-accent {
+  box-shadow: 0 0 15px 0px rgba(204, 255, 0, 0.2);
+}
+
+.glow-accent-strong {
+  box-shadow: 0 0 25px 0px rgba(204, 255, 0, 0.4);
+}
+
+/* ── Code Block ────────────────────────────────────── */
+
+.code-block {
+  background: #000000;
+  border: 1px solid #27272A;
+  border-radius: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #A1A1AA;
+}
+
+/* ── Waveform bars ─────────────────────────────────── */
+
+.waveform-bar {
+  display: inline-block;
+  width: 3px;
+  margin: 0 1px;
+  border-radius: 0;
+  background: var(--danger);
+  transition: height 0.05s ease-out;
+}
+
+/* Add custom focus utilities */
+*:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
